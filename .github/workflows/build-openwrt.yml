@@ -207,7 +207,7 @@ jobs:
     
     - name: 删除releases
       if: env.REPO_TOKEN
-      uses: dev-drprasad/delete-older-releases@v0.2.0
+      uses: danshui-git/delete-older-releases@main
       with:
         repo: ${{ github.repository }}
         keep_latest: ${{ env.keep_latest }}
