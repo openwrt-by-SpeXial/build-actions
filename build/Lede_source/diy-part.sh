@@ -8,7 +8,7 @@
 
 
 cat >$NETIP <<-EOF
-uci set network.lan.ipaddr='192.168.2.2'                      # IPv4 地址(openwrt后台地址)
+uci set network.lan.ipaddr='192.168.2.1'                      # IPv4 地址(openwrt后台地址)
 uci set network.lan.netmask='255.255.255.0'                   # IPv4 子网掩码
 #uci set network.lan.gateway='192.168.2.1'                    # 旁路由设置 IPv4 网关（去掉uci前面的#生效）
 #uci set network.lan.broadcast='192.168.2.255'                # 旁路由设置 IPv4 广播（去掉uci前面的#生效）
@@ -88,6 +88,23 @@ sed -i 's/"带宽监控"/"监控"/g' `egrep "带宽监控" -rl ./`
 # 整理固件包时候,删除您不想要的固件或者文件,让它不需要上传到Actions空间（根据编译机型变化,自行调整需要删除的固件名称）
 cat >"$CLEAR_PATH" <<-EOF
 packages
+luci-app-accesscontrol
+luci-app-aliyundrive-webdav
+luci-app-ahcp
+luci-app-airplay2
+luci-app-aliddns
+luci-app-amule
+luci-app-aria2
+luci-app-asterisk
+luci-app-baidupcs-web
+luci-app-bcp38
+luci-app-cifs-mount
+luci-app-cifsd
+luci-app-clamav
+luci-app-ddns
+luci-app-dump1090
+luci-app-adblock
+luci-app-adbyby-plus
 config.buildinfo
 feeds.buildinfo
 openwrt-x86-64-generic-kernel.bin
@@ -95,4 +112,5 @@ openwrt-x86-64-generic.manifest
 openwrt-x86-64-generic-squashfs-rootfs.img.gz
 sha256sums
 version.buildinfo
+luci-app-clash
 EOF
